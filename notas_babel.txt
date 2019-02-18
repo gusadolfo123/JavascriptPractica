@@ -1,0 +1,40 @@
+npm init
+
+luego 
+npm i webpack webpack-cli style-loader css-loader webpack-dev-server html-webpack-plugin
+
+git init 
+
+git add .
+
+git commit -m "Proyecto Inicial"
+
+user webpack para el servidor y crear archivos de produccion
+se crea archivo webpack.config.js y se configura
+
+
+en el package.json
+creo script propios
+"build": "webpack -p"
+"dev": "webpack-dev-server -d" de esta manera cada que 
+modifique se acutaliza solo
+
+
+babel-core
+babel-loader
+babel-preset-env
+babel-preset-stage-0
+
+-- version funcional babel
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+
+npm run build-3
+-- vesion webpack
+npm install --save-dev webpack
+npm install --save-dev webpack-cli
+
+se usa el build normal de webpack
+npm install --save-dev babel-loader @babel/core
+
+-- ok
+npm i -D babel-core babel-polyfill babel-preset-es2015 babel-preset-stage-0 babel-loader

@@ -1,0 +1,36 @@
+{
+  "name": "consumo-servicio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "webpack -p",
+    "dev": "webpack-dev-server -d",
+    "webpack": "webpack",
+    "start": "http-server",
+    "build-1": "webpack --config webpack.config.js",
+    "build-3": "babel src -d output --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^6.0.20",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3"
+  }
+}
