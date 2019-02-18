@@ -15,13 +15,47 @@ export class Table {
   constructor(table) {
     this.table = table;
   }
-  AddRow(requestService) {
-    const body = this.table.tBodies[0];
-    const row = body.insertRow();
-    row.innerHTML = ` <th scope="row">${1}</th>
-                      <td>${requestService.name}</td>
-                      <td>${requestService.date}</td>
-                      <td><span class="badge badge-pill badge-info">${requestService.state}</span></td>`;
+  addCell(row, value, index, state) {
+
+    var cell = row.insertCell(index);
+    var newText = document.createTextNode(value);
+
+    if (state) {
+      let element = document.createElement('span');
+      element.className = 'badge badge-pill badge-info';
+      element.appendChild(newText);
+      cell.appendChild(element);
+    } else {
+      cell.appendChild(newText);
+    }
+
+  }
+  addRow(requestService) {
+
+    var tableRef = this.table.tBodies[0];
+    var newRow = tableRef.insertRow();
+
+    for (const key in requestService) {
+      if (requestService.hasOwnProperty(key)) {
+        const element = requestService[key];
+        console.log(element);
+      }
+    }
+
+    this.addCell(newRow, 1, 0, false);
+    this.addCell(newRow, requestService.name, 1, false);
+    this.addCell(newRow, requestService.date, 2, false);
+    this.addCell(newRow, requestService.state, 3, true);
+
+
+    // var body = this.table.tBodies[0];
+    // const row = body.insertRow();
+
+    // row.innerHTML = ` <th scope="row">${1}</th>
+    //                     <td>${requestService.name}</td>
+    //                     <td>${requestService.date}</td>
+    //                     <td><span class="badge badge-pill badge-info">${requestService.state}</span></td>`;
+    // console.log(row);
   }
 }
 export class Alert {

@@ -1,4 +1,6 @@
-import {StateRequestType} from './UI';
+import {
+  StateRequestType
+} from './UI';
 
 export class RequestService {
   constructor(name, docNumber, date, state) {

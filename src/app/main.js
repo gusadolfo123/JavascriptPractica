@@ -1,6 +1,12 @@
 import 'babel-polyfill';
-import {Table, Alert, AlertType} from './UI';
-import {RequestService} from './RequestService';
+import {
+  Table,
+  Alert,
+  AlertType
+} from './UI';
+import {
+  RequestService
+} from './RequestService';
 
 const form = document.getElementById('formRequests');
 const table = document.getElementById('tableRequests');
@@ -19,12 +25,14 @@ form.addEventListener('submit', e => {
   const requestService = new RequestService(username, docNumber);
   try {
     requestService.send();
-    UITable.AddRow(requestService);
+    const result = requestService.getState();
+    result.then(res => console.log('Result: ' + res));
+    UITable.addRow(requestService);
     const alert = UIAlert.RenderMessage('Solicitud Enviada Correctamente.', AlertType.success);
     alerts.innerHTML = alert;
   } catch (error) {
     console.log(error);
-    const alert = UIAlert.RenderMessage(error, AlertType.success);
+    const alert = UIAlert.RenderMessage(error, AlertType.danger);
     alerts.innerHTML = alert;
     return;
   }
